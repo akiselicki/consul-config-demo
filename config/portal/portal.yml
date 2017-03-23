@@ -1,0 +1,4 @@
+--- # Base application configuration
+
+portal.test: git2consul
+

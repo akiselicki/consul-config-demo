@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "repos" : [{
+    "name" : "config",
+    "url" : "git@github.com:akiselicki/consul-config-demo.git",
+    "branches" : ["master"],
+    "include_branch_name" : false,
+    "source_root": "config/",
+    "hooks": [{
+      "type" : "polling",
+      "interval" : "1"
+    }]
+  }]
+}

@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+
+  consul:
+    container_name: consul
+    image: progrium/consul:latest
+    entrypoint: /bin/start -server -bootstrap -ui-dir /ui
+
+  git2consul:
+    container_name: git2consul
+    image: cimpress/git2consul:latest
+    volumes:
+      - ./git2consul.d:/etc/git2consul.d
+      - ~/.ssh:/root/.ssh
+    depends_on:
+      - consul
+    links:
+      - consul
+    environment:
+      - CONSUL_ENDPOINT=consul
+      - COMMAND=--config-file /etc/git2consul.d/config.json
+    entrypoint: sh /etc/git2consul.d/wait_for_consul_leader.sh

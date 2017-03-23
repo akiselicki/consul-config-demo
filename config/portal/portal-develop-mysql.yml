@@ -1,0 +1,3 @@
+--- # Base application configuration for develop-mysql profile
+
+portal.test: git2consul-develop
